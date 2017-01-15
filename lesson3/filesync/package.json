@@ -1,0 +1,8 @@
+{
+  "name": "filesync",
+  "version": "1.0.0",
+  "description": "command line tool to sync files to the cloud",
+  "main": "index.js",
+  "scripts": {
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "cloud",
+  "version": "0.0.1",
+  "description": "test cloud server to recieve the files",
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "config": "^1.24.0",
+    "express": "~4.14.0",
+    "multer": "^1.2.1"
+  }
+}
