@@ -6,13 +6,11 @@
   Any argument to it not in a 'name=value' format is a command to execute.
 */
 
-var fs = require('fs');
 var command = require('commander');
 var promptly = require('promptly');
-var agent = require('superagent');
+var cloud = require('./cloudClient');
 
 var PASSWORD_MIN_LENGTH = 6;
-var CLOUD_URL = 'localhost:3000/upload';
 
 var userArgs = process.argv.slice(2);
 //console.log('command started with args:', process.argv, ', so userArgs are:', userArgs);
@@ -25,7 +23,7 @@ command
       if (err) {
         return exitWithError(err);
       }
-      postFileToCloud(file, command.username, password, function(err, res) {
+      cloud.upload(file, command.username, password, function(err, res) {
         if (err) {
           return exitWithError(err);
         }
@@ -39,25 +37,6 @@ command
 function exitWithError(err) {
   console.error(err.message);
   process.exit(1);
-}
-
-function postFileToCloud(file, username, password, cb) {
-  fs.stat(file, function(err, stats){
-    if (err) {
-      return exitWithError(err);
-    }
-    console.log('Trying to sync file', file, 'with size', stats.size);
-    agent
-      .post(CLOUD_URL)
-      .auth(username, password)
-      .type('form')
-      .on('progress', function(e) {
-         console.log('Percentage done: ', e.percent);
-       })
-      .attach('syncfile', file)
-      .set('Accept', 'application/json')
-      .end(cb);
-  });
 }
 
 function validator (value) {
