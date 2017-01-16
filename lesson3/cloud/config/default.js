@@ -1,3 +1,5 @@
 module.exports = {
-  uploadDestination: 'uploads-default/'
+  uploadDestination: 'uploads-default/',
+  username: 'qwe',
+  password: 'securepass'
 };

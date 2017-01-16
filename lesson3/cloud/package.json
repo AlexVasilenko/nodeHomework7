@@ -6,6 +6,7 @@
     "start": "node app"
   },
   "dependencies": {
+    "basic-auth": "^1.1.0",
     "config": "^1.24.0",
     "express": "~4.14.0",
     "multer": "^1.2.1"
