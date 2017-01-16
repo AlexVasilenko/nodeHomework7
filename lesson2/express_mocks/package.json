@@ -1,0 +1,14 @@
+{
+  "name": "express_mocks",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "errorhandler": "^1.4.3",
+    "express": "^4.13.3",
+    "express-session": "^1.13.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
