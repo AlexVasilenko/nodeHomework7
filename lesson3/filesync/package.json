@@ -1,8 +1,14 @@
 {
   "name": "filesync",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "command line tool to sync files to the cloud",
-  "main": "index.js",
-  "scripts": {
+  "preferGlobal": true,
+  "bin": {
+    "filesync": "app.js"
+  },
+  "dependencies": {
+    "commander": "^2.9.0",
+    "promptly": "^2.1.0",
+    "superagent": "^3.3.2"
   }
 }
