@@ -3,7 +3,7 @@
 ----
 ## Lecture
 
-**Video Link** [Webinar Video 2]() 
+**Video Link** [Webinar Video 2](https://youtu.be/o-uat-Oihkk) 
 
 * Events — EventEmitter.
 * Event Loop.
