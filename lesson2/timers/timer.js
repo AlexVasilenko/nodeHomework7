@@ -12,7 +12,8 @@ setTimeout(function () {
     // });
 }, 2500);
 
-// setInterval(function () {
-//     console.log(process.memoryUsage());
-// }, 1000);
+
+var timer = setInterval(function () {
+    console.log(process.memoryUsage());
+}, 1000);
 
