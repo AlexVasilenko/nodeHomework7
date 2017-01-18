@@ -15,6 +15,13 @@
 
 ***Video timing***
 
+1.	[Events — EventEmitter]( https://youtu.be/o-uat-Oihkk#t=19m05s) 
+2.	[Event Loop]( https://youtu.be/o-uat-Oihkk#t=36m27s) 
+3.	[Работа с таймерами]( https://youtu.be/o-uat-Oihkk#t=79m44s) 
+4.	[Подход process.nextTic]( https://youtu.be/o-uat-Oihkk#t=98m34s) 
+5.	[Файловая система]( https://youtu.be/o-uat-Oihkk#t=102m46s) 
+6.	[Express]( https://youtu.be/o-uat-Oihkk#t=116m53s) 
+
 ----
 ### Event Loop
 
