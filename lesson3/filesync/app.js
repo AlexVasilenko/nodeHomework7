@@ -8,6 +8,7 @@
 
 var command = require('commander');
 var promptly = require('promptly');
+var chalk = require('chalk');
 var cloud = require('./cloudClient');
 
 var PASSWORD_MIN_LENGTH = 6;
@@ -27,7 +28,7 @@ command
         if (err) {
           return exitWithError(err);
         }
-        console.log('File synced', file);
+        console.log(chalk.green('File synced'), file);
         process.exit(0);
       });
     });
@@ -43,7 +44,7 @@ command
   .parse(process.argv);
 
 function exitWithError(err) {
-  console.error(err.message);
+  console.error(chalk.red(err.message));
   process.exit(1);
 }
 
