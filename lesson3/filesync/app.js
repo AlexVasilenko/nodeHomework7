@@ -18,7 +18,7 @@ var userArgs = process.argv.slice(2);
 command
   .arguments('<file>')
   .option('-u, --username <username>', 'Enter username:')
-  .action(function(file) {
+  .action(function(file) {//TO-DO: promisify
     promptly.prompt('Enter password:', { validator: validator, silent: true }, function (err, password) {
       if (err) {
         return exitWithError(err);
@@ -32,6 +32,14 @@ command
       });
     });
   })
+  // //promisified + ES6
+  // .action(file => promptly.prompt('Enter password:', { validator: validator, silent: true })
+  //   .then(password => cloud.upload(file, command.username, password))//TO-DO: promisify
+  //   .then(() => {
+  //       console.log('File synced', file);
+  //       process.exit(0);
+  //     })
+  // )
   .parse(process.argv);
 
 function exitWithError(err) {

@@ -9,7 +9,7 @@ module.exports = {
 };
 
 function postFileToCloud(file, username, password, cb) {
-  fs.stat(file, function(err, stats){
+  fs.stat(file, function(err, stats){//TO-DO: bluebird promisify
     if (err) {
       return cb(err);
     }
