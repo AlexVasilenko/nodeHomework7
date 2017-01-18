@@ -12,6 +12,8 @@
 * Node.js web-server
 * SEMVer, creating own npm package, package.json
 
+***Video timing***
+
 ----
 ## Homework
 
