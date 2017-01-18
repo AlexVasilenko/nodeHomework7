@@ -1,4 +1,5 @@
 var fs = require('fs');
+var path = require('path');
 var agent = require('superagent');
 var ProgressBar = require('ascii-progress');
 
@@ -8,20 +9,21 @@ module.exports = {
   upload: postFileToCloud
 };
 
-function postFileToCloud(file, username, password, cb) {
-  fs.stat(file, function(err, stats){//TO-DO: bluebird promisify
+function postFileToCloud(filePath, username, password, cb) {
+  fs.stat(filePath, function(err, stats){//TO-DO: bluebird promisify
     if (err) {
       return cb(err);
     }
-    console.log('Trying to sync file', file, 'with size', stats.size);
+    console.log('Trying to sync file', filePath, 'with size', stats.size);
     var bar = new ProgressBar({
         schema: 'uploading [:bar] :percent',
         total: 100,
         width: 20
     });
-    var fileStream = fs.createReadStream(file);
+    var fileStream = fs.createReadStream(filePath);
+    var uploadUrl = generateUploadUrl(filePath);
     agent
-      .post(CLOUD_URL)
+      .post(uploadUrl)
       .auth(username, password)
       .type('form')
       .on('progress', function(e) {
@@ -32,4 +34,9 @@ function postFileToCloud(file, username, password, cb) {
       .set('Accept', 'application/json')
       .end(cb);
   });
+}
+
+function generateUploadUrl(filePath) {
+  var filePathQuery = encodeURI(path.resolve(filePath));
+  return CLOUD_URL + '?filePath=' + filePathQuery;
 }
