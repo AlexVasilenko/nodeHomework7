@@ -13,6 +13,8 @@
 * Introduction to Express.
 * Practice: MockAPI app.
 
+***Video timing***
+
 ----
 ### Event Loop
 
