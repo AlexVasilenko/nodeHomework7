@@ -23,6 +23,7 @@
 7.	[Модуль http]( https://youtu.be/XxB8AugukMg#t=91m15s) 
 8.	[NPM]( https://youtu.be/XxB8AugukMg#t=101m26s) 
 9.	[NPM модули]( https://youtu.be/XxB8AugukMg#t=101m26s) 
+10.	[Зависимости, версии]( https://youtu.be/XxB8AugukMg#t=120m09s) 
 
 ----
 ## Homework
