@@ -6,10 +6,9 @@ var app = express();
 app.use(routes);
 
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
+  console.log('err', err);
+  res.status(err.status || err.code || 500);
   res.json(err.message);
 });
 
-app.listen(3000, function() {
-  console.log('app listening 3000 port');
-});
+module.exports = app;
