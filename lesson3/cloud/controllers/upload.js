@@ -1,6 +1,7 @@
 var multer  = require('multer');
 var fs = require('fs');
 var config = require('config');
+var log = require('../log');
 
 var uploadMiddleware = multer({
   dest: config.uploadDestination,
@@ -13,9 +14,9 @@ var filesList = [];
 
 try {
   filesList = fs.readFileSync(FILES_LIST_PATH, 'utf8').split(FILERECORDSPLITTER);
-  console.log('FileList loaded at start');
+  log.info('FileList loaded at start');
 } catch (err) {
-  console.log('No fileList found at start');
+  log.info('No fileList found at start');
 }
 
 function fileFilter(req, file, cb) {
@@ -49,7 +50,7 @@ function saveToFileList(filePath, cb) {
   } catch (err) {
     return cb(err);
   }
-  console.log('File saved to list', filePath);
+  log.debug('File saved to list', filePath);
   return cb();
 }
 module.exports = {
