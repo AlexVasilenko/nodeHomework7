@@ -1,5 +1,5 @@
 var multer  = require('multer');
-var config = require('config');
+var config = require('../config');//TO-DO: switch to config module
 var basic = require('basic-auth');
 var router = require('express').Router();
 
