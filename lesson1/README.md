@@ -14,6 +14,16 @@
 
 ***Video timing***
 
+1.	 [Как устроен slack-чат]( https://youtu.be/XxB8AugukMg#t=16m30s) 
+2.	[Что такое node.js?]( https://youtu.be/XxB8AugukMg#t=34m10s) 
+3.	[Обзор сайта nodejs.org]( https://youtu.be/XxB8AugukMg#t=46m04s) 
+4.	[Команда require]( https://youtu.be/XxB8AugukMg#t=57m36s) 
+5.	[Модуль exports]( https://youtu.be/XxB8AugukMg#t=63m40s) 
+6.	[Подключение файла .json]( https://youtu.be/XxB8AugukMg#t=76m39s) 
+7.	[Модуль http]( https://youtu.be/XxB8AugukMg#t=91m15s) 
+8.	[NPM]( https://youtu.be/XxB8AugukMg#t=101m26s) 
+9.	[NPM модули]( https://youtu.be/XxB8AugukMg#t=101m26s) 
+
 ----
 ## Homework
 
