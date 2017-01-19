@@ -3,6 +3,8 @@
 ----
 ## Lecture
 
+**Video Link** [Webinar Video 3](https://youtu.be/nd6T0ZJQSG0) 
+
 * Writing console tools
 * Configs
 * Data streams
