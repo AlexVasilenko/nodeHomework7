@@ -21,7 +21,7 @@ function basicAuth() {
       log.error('Not Authorized', creds);
       res.status(401).send('Not Authorized');
     } else {
-      log.debug('Authorized', creds);
+      log.debug('Authorized', creds.username);
       return next();
     }
   };

@@ -44,7 +44,7 @@ function validateRequest() {
 
 function saveToFileList(filePath, cb) {
   try {
-    filesList.push(filePath)
+    filesList.push(filePath);
     var fileRecord = filePath + FILERECORDSPLITTER;
     fs.appendFileSync(FILES_LIST_PATH, fileRecord);
   } catch (err) {
