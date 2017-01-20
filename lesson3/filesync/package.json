@@ -1,8 +1,9 @@
 {
   "name": "filesync",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "command line tool to sync files to the cloud",
   "preferGlobal": true,
+  "main":"app.js",
   "bin": {
     "filesync": "app.js"
   },
