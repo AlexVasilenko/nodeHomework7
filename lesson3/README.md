@@ -15,7 +15,7 @@
 ## Installation
 
 1. Go to *./cloud* folder, run *npm install*.
-2. Go to *./filesync* folder, run *npm install*, then *npm link*.
+2. Go to *./filesync* folder, run *npm install -g*, then *npm link*.
 
 ----
 ## Usage
