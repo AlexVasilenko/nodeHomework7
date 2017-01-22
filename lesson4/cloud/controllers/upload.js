@@ -13,7 +13,10 @@ var FILERECORDSPLITTER = config.filesRecordSplitter;
 var filesList = [];
 
 try {
-  filesList = fs.readFileSync(FILES_LIST_PATH, 'utf8').split(FILERECORDSPLITTER);
+  filesList = fs
+    .readFileSync(FILES_LIST_PATH, 'utf8')
+    .trim()
+    .split(FILERECORDSPLITTER);
   log.info('FileList loaded at start');
 } catch (err) {
   log.info('No fileList found at start');
@@ -39,7 +42,7 @@ function validateRequest() {
       return next(err);
     }
     next();
-  }
+  };
 }
 
 function saveToFileList(filePath, cb) {
