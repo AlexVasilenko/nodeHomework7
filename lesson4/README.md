@@ -21,6 +21,11 @@
 2. Go to any folder, run *filesync -u qwe <file>* where *<file>* is relative path to the tile you want to sync. Password is *securepass*.
 
 ----
+## Testing
+
+Go to *./cloud* or *./filesync* folder, and run *npm test*.
+
+----
 ## Homework
 
 1. (easy)
