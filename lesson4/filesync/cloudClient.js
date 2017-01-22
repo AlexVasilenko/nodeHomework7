@@ -10,14 +10,14 @@ module.exports = {
   upload: postFileToCloud
 };
 
-function postFileToCloud(filePath, username, password, cb) {
+function postFileToCloud(filePath, username, password) {
   return fs.statAsync(filePath)
     .then(stats => {
       console.log('Trying to sync file', filePath, 'with size', stats.size);
       var bar = new ProgressBar({
-          schema: 'uploading [:bar] :percent',
-          total: 100,
-          width: 20
+        schema: 'uploading [:bar] :percent',
+        total: 100,
+        width: 20
       });
       var fileStream = fs.createReadStream(filePath);
       var uploadUrl = generateUploadUrl(filePath);

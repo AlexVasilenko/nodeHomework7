@@ -13,7 +13,7 @@ var cloud = require('./cloudClient');
 
 var PASSWORD_MIN_LENGTH = 6;
 
-var userArgs = process.argv.slice(2);
+//var userArgs = process.argv.slice(2);
 //console.log('command started with args:', process.argv, ', so userArgs are:', userArgs);
 
 command
@@ -37,9 +37,9 @@ command
   .action(file => promptly.prompt('Enter password:', { validator: validator, silent: true })
     .then(password => cloud.upload(file, command.username, password))//TO-DO: promisify
     .then(() => {
-        console.log('File synced', file);
-        process.exit(0);
-      })
+      console.log('File synced', file);
+      process.exit(0);
+    })
     .catch(exitWithError)
   )
   .parse(process.argv);
@@ -54,4 +54,4 @@ function validator (value) {
     throw new Error('Password should have length more than ' + PASSWORD_MIN_LENGTH);
   }
   return value;
-};
+}
