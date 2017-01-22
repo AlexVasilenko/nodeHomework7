@@ -10,7 +10,7 @@ router.post('/upload',
   uploadCtrl.parse.single('syncfile'),
   function(req, res) {
     log.verbose(req.file ? 'Uploaded' : 'Duplicate', req.query.filePath);
-    res.status(200).end();
+    res.status(200).json({ duplicate: !req.file });
   }
 );
 
@@ -18,8 +18,8 @@ function basicAuth() {
   return function(req, res, next) {
     var creds = basic(req);
     if (!creds || creds.name !== config.username || creds.pass !== config.password) {
-      log.error('Not Authorized', creds);
-      res.status(401).send('Not Authorized');
+      log.error('Not Authorized', creds.username);
+      res.status(401).json('Not Authorized');
     } else {
       log.debug('Authorized', creds.username);
       return next();
