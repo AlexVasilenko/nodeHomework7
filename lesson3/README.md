@@ -18,7 +18,10 @@
 3.	[Использование библиотеки asci-progress]( https://youtu.be/nd6T0ZJQSG0#t=65m45s) 
 4.	[Использование библиотеки agent]( https://youtu.be/nd6T0ZJQSG0#t=72m47s) 
 5.	[Модуль stats]( https://youtu.be/nd6T0ZJQSG0#t=92m41s) 
-
+6.	[Logging]( https://youtu.be/nd6T0ZJQSG0#t=107m28s) 
+7.	[Routes]( https://youtu.be/nd6T0ZJQSG0#t=109m58s) 
+8.	[Конфигурация в приложении]( https://youtu.be/nd6T0ZJQSG0#t=110m37s) 
+9.	[Использование библиотеки multer]( https://youtu.be/nd6T0ZJQSG0?t=7294) 
 
 ----
 ## Installation
