@@ -8,7 +8,7 @@
     "filesync": "app.js"
   },
   "scripts": {
-    "test": "./node_modules/.bin/_mocha --colors test/eslint.js test/integration"
+    "test": "./node_modules/.bin/_mocha --colors test/eslint.js test/unit test/integration"
   },
   "dependencies": {
     "ascii-progress": "^1.0.5",
@@ -25,6 +25,7 @@
     "child-process-promise": "^2.2.0",
     "mocha": "^3.2.0",
     "mocha-eslint": "^3.0.1",
-    "sinon": "^1.17.7"
+    "sinon": "^1.17.7",
+    "sinon-chai": "^2.8.0"
   }
 }
