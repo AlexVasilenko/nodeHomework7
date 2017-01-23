@@ -8,7 +8,7 @@
     "filesync": "app.js"
   },
   "scripts": {
-    "test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec --colors --recursive test/eslint.js test/integration"
+    "test": "./node_modules/.bin/_mocha --colors test/eslint.js test/integration"
   },
   "dependencies": {
     "ascii-progress": "^1.0.5",
@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "istanbul": "^0.4.5",
+    "child-process-promise": "^2.2.0",
     "mocha": "^3.2.0",
     "mocha-eslint": "^3.0.1",
     "sinon": "^1.17.7"
