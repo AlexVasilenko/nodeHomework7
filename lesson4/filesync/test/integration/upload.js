@@ -18,9 +18,10 @@ describe('Upload', function() {
   it('should ask a password', function(done) {
     const command = spawn('filesync', ['-u', VALID_USER, VALID_FILE_PATH], { capture: [ 'stdout', 'stderr' ]});
     const childProcess = command.childProcess;
-    childProcess.stdout.on('data', function (data) {
+    childProcess.stdout.on('data', function handler(data) {
       const stdout = data.toString().trim();
       expect(stdout).to.equal(PASSWORD_PROMPT);
+      childProcess.stdout.removeListener('data', handler);
       done();
     });
   });
@@ -30,13 +31,14 @@ describe('Upload', function() {
     const command = spawn('filesync', ['-u', VALID_USER, VALID_FILE_PATH], { capture: [ 'stdout', 'stderr' ]});
     const childProcess = command.childProcess;
     let askedPassword = false;
-    childProcess.stdout.on('data', function (data) {
+    childProcess.stdout.on('data', function handler(data) {
       if (!askedPassword) {
         askedPassword = true;
         childProcess.stdin.write(SHORT_PASSWORD + '\n');
       } else {
         const stdout = data.toString().trim();
         expect(stdout).to.equal(SHORT_PASSWORD_ERROR);
+        childProcess.stdout.removeListener('data', handler);
         done();
       }
     });
@@ -50,8 +52,9 @@ describe('Upload', function() {
         done();
       });
     const childProcess = command.childProcess;
-    childProcess.stdout.on('data', function () {
+    childProcess.stdout.on('data', function handler() {
       childProcess.stdin.write(VALID_PASSWORD + '\n');
+      childProcess.stdout.removeListener('data', handler);
     });
   });
 
@@ -60,13 +63,15 @@ describe('Upload', function() {
     const command = spawn('filesync', ['-u', VALID_USER, VALID_FILE_PATH], { capture: [ 'stdout', 'stderr' ]});
     const childProcess = command.childProcess;
 
-    childProcess.stdout.on('data', function () {
+    childProcess.stdout.on('data', function handler() {
       childProcess.stdin.write(VALID_PASSWORD + '\n');
+      childProcess.stdout.removeListener('data', handler);
     });
 
-    childProcess.stderr.on('data', function (data) {
+    childProcess.stderr.on('data', function errorHandler(data) {
       const stderr = data.toString().trim();
       expect(stderr).to.equal(SERVER_DOWN_ERROR);
+      childProcess.stdout.removeListener('data', errorHandler);
       done();
     });
   });
