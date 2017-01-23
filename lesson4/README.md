@@ -28,8 +28,8 @@ Go to *./cloud* or *./filesync* folder, and run *npm test*.
 ----
 ## Homework
 
-1. (easy)
-2. (medium)
+1. (easy) Добавить в filsync tool integration тесты, которые будут проверять работоспособность приложения с запущенным сервером при разных тест-кейсах.
+2. (medium) Написать моковый сервер, который будет подниматься рядом вместе с запуском integration тестов filsync.
 3. (hard)
 
 ----
