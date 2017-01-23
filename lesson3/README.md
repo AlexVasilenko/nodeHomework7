@@ -11,6 +11,15 @@
 * Logging, debug
 * Promisifying callback methods
 
+***Video timing***
+
+1.	Модуль commander]( https://youtu.be/nd6T0ZJQSG0#t=42m03s) 
+2.	[Использование библиотеки promptly]( https://youtu.be/nd6T0ZJQSG0#t=48m59s) 
+3.	[Использование библиотеки asci-progress]( https://youtu.be/nd6T0ZJQSG0#t=65m45s) 
+4.	[Использование библиотеки agent]( https://youtu.be/nd6T0ZJQSG0#t=72m47s) 
+5.	[Модуль stats]( https://youtu.be/nd6T0ZJQSG0#t=92m41s) 
+
+
 ----
 ## Installation
 
