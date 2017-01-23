@@ -22,6 +22,7 @@
 7.	[Routes]( https://youtu.be/nd6T0ZJQSG0#t=109m58s) 
 8.	[Конфигурация в приложении]( https://youtu.be/nd6T0ZJQSG0#t=110m37s) 
 9.	[Использование библиотеки multer]( https://youtu.be/nd6T0ZJQSG0?t=7294) 
+10.	[Promisifying]( https://youtu.be/nd6T0ZJQSG0?t=8635) 
 
 ----
 ## Installation
