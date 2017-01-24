@@ -16,7 +16,10 @@ describe('Upload', function() {
 
 
   it('should ask a password', function(done) {
-    const command = spawn('filesync', ['-u', VALID_USER, VALID_FILE_PATH], { capture: [ 'stdout', 'stderr' ]});
+    const command = spawn(
+      'filesync', ['-u', VALID_USER, VALID_FILE_PATH],
+      { capture: [ 'stdout', 'stderr' ]}
+    );
     const childProcess = command.childProcess;
     childProcess.stdout.on('data', function handler(data) {
       const stdout = data.toString().trim();

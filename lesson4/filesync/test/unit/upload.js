@@ -17,7 +17,7 @@ const NO_FILE_ERROR_PART = 'ENOENT: no such file or directory';
 const STUB_SERVER_RESPONSE = 'ok';
 
 
-describe('Upload', function() {
+describe('Upload unit', function() {
 
   let postRequest;
 
@@ -37,11 +37,13 @@ describe('Upload', function() {
     console.log.restore();
   });
 
-  it('should give error if file doesnt exist', function(done) {
-    cloud.upload(INVALID_FILE_PATH)
+  it('should give error if file doesnt exist', function() {
+    return cloud.upload(INVALID_FILE_PATH)
+      .then(result => {
+        return Promise.reject('Got success result' + result);
+      })
       .catch(function(err) {
-        expect(err.message.includes(NO_FILE_ERROR_PART)).to.equal(true);
-        done();
+        return expect(err.message.includes(NO_FILE_ERROR_PART)).to.equal(false);
       });
   });
 
@@ -65,15 +67,16 @@ describe('Upload', function() {
   //   };
   // };
 
-  it('should return result of the cloud response', function(done) {
+  it('should return result of the cloud response', function() {
     postRequest.returns(new PostStub());
-    cloud.upload(VALID_FILE_PATH, VALID_USER, VALID_PASSWORD)
+    return cloud.upload(VALID_FILE_PATH, VALID_USER, VALID_PASSWORD)
       .then(function(result) {
-        expect(result).to.equal(STUB_SERVER_RESPONSE);
-        expect(console.log).to.be.calledWith(
-          'Trying to sync file', VALID_FILE_PATH, 'with size', VALID_FILE_SIZE
-        );
-        done();
+        return Promise.all([
+          expect(result).to.equal(STUB_SERVER_RESPONSE),
+          expect(console.log).to.be.calledWith(
+            'Trying to sync file', VALID_FILE_PATH, 'with size', VALID_FILE_SIZE
+          )
+        ]);
       });
   });
 

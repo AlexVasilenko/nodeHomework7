@@ -23,10 +23,6 @@ describe('Upload', function() {
     return clearUploadFolder();
   });
 
-  beforeEach(function() {
-    debug('\n =>>>> next testcase =>>>> \n');
-  });
-
   it('should get 400 error without mandatory qs and not upload the file', function() {
     var fileStream = fs.createReadStream(testData.file);
     var wrongUploadUrl = '/upload';
