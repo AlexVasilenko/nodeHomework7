@@ -74,7 +74,7 @@ describe('Upload', function() {
     childProcess.stderr.on('data', function errorHandler(data) {
       const stderr = data.toString().trim();
       expect(stderr).to.equal(SERVER_DOWN_ERROR);
-      childProcess.stdout.removeListener('data', errorHandler);
+      childProcess.stderr.removeListener('data', errorHandler);
       done();
     });
   });

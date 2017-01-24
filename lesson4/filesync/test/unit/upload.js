@@ -43,7 +43,7 @@ describe('Upload unit', function() {
         return Promise.reject('Got success result' + result);
       })
       .catch(function(err) {
-        return expect(err.message.includes(NO_FILE_ERROR_PART)).to.equal(false);
+        return expect(err.message.includes(NO_FILE_ERROR_PART)).to.equal(true);
       });
   });
 
