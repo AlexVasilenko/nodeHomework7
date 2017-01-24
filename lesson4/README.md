@@ -30,9 +30,13 @@ Go to *./cloud* or *./filesync* folder, and run *npm test*.
 
 1. (easy) Добавить в filsync tool integration тесты, которые будут проверять работоспособность приложения с запущенным сервером при разных тест-кейсах.
 2. (medium) Написать моковый сервер, который будет подниматься рядом вместе с запуском integration тестов filsync.
-3. (hard)
 
 ----
 ## Links
 
-1. [Google](https://google.com)
+1. [Spawn](https://docs.nodejitsu.com/articles/child-processes/how-to-spawn-a-child-process/)
+2. [Mocha](https://mochajs.org/)
+3. [Chai](http://chaijs.com/)
+4. [Supertest](https://www.npmjs.com/package/supertest)
+5. [Sinon](http://sinonjs.org/)
+6. [Istanbul](https://www.npmjs.com/package/istanbul)
