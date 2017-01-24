@@ -88,16 +88,15 @@ describe('Upload', function() {
 });
 
 function clearUploadFolder() {
-  return ensureNoFilesInFolder()
-    .then(() => ensureNoFilesList())
-    .then(() => debug('Upload destination cleaned and ready for testing'));
+  return Promise.all([ ensureNoFilesInFolder(), ensureNoFilesList() ])
+    .then(function() {
+      debug('Upload destination cleaned and ready for testing');
+    });
 }
 
 function ensureNoFilesInFolder() {
   return fs.readdirAsync(UPLOAD_FOLDER)
-    .then(files => Promise.all(files.map(file =>
-      !UPLOAD_FOLDER_EXCLUDE.includes(file) && fs.unlinkAsync(path.join(UPLOAD_FOLDER, file))
-    )))
+    .then(files => removeUnwantedFiles(files))
     .then(() => fs.readdirAsync(config.uploadDestination))
     .then(files => {
       if (files.length !== DEFAULT_FILES_IN_UPLOAD_FOLDER) {
@@ -106,25 +105,44 @@ function ensureNoFilesInFolder() {
     });
 }
 
+function removeUnwantedFiles(files) {
+  return Promise.all(files.map(function(file) {
+    return !UPLOAD_FOLDER_EXCLUDE.includes(file)
+      && fs.unlinkAsync(path.join(UPLOAD_FOLDER, file));
+  }));
+}
+
 function ensureNoFilesList() {
   return fs.statAsync(FILELIST_PATH)
-    .catch(() => false)
-    .then(stats => stats && fs.unlinkAsync(FILELIST_PATH));
+    .catch(function(){
+      return false;
+    })
+    .then(function(stats) {
+      return stats && fs.unlinkAsync(FILELIST_PATH);
+    });
 }
 
 function checkUploadResults(num, filesListExists, lastFilePath) {
   var filesInFolder = DEFAULT_FILES_IN_UPLOAD_FOLDER + num;
   var recordsInFileList = num;
   return fs.readdirAsync(config.uploadDestination)
-    .then(files => expect(files.length).to.equal(filesInFolder))
-    .then(() =>
-      filesListExists && fs
-        .readFileSync(FILELIST_PATH, 'utf8')
-        .trim()
-        .split(config.filesRecordSplitter)
-    )
-    .then(filesList => Promise.all([
-      filesListExists && expect(filesList.length).to.equal(recordsInFileList),
-      lastFilePath && expect(filesList[filesList.length - 1]).to.equal(lastFilePath)
-    ]));
+    .then(function(files) {
+      return expect(files.length).to.equal(filesInFolder);
+    })
+    .then(function() {
+      return filesListExists && getFilesList();
+    })
+    .then(function(filesList){
+      return filesList && Promise.all([
+        filesListExists && expect(filesList.length).to.equal(recordsInFileList),
+        lastFilePath && expect(filesList[filesList.length - 1]).to.equal(lastFilePath)
+      ]);
+    });
+}
+
+function getFilesList() {
+  return fs
+    .readFileSync(FILELIST_PATH, 'utf8')
+    .trim()
+    .split(config.filesRecordSplitter);
 }
