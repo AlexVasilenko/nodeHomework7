@@ -23,7 +23,7 @@ function postFileToCloud(filePath, username, password) {
         .type('form')
         .on('progress', function(e) {
           var percentDone = Math.floor((e.loaded / e.total) * 100);
-          bar.update(percentDone);
+          bar.update(percentDone / 100);
         })
         .attach('syncfile', fileStream)
         .set('Accept', 'application/json');
