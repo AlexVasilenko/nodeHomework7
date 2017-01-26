@@ -10,6 +10,8 @@
 * Spies, Mocks, Stubs
 * Test coverage
 
+***Video timing***
+
 ----
 ## Installation
 
