@@ -12,6 +12,19 @@
 
 ***Video timing***
 
+1.	[Tests]( https://youtu.be/rGu5gNR4BhE#t=33m14s) 
+2.	[Библиотеки для тестирования node.js]( https://youtu.be/rGu5gNR4BhE#t=41m32s) 
+3.	[Библиотека mocha]( https://youtu.be/rGu5gNR4BhE#t=52m28s) 
+4.	[Describe]( https://youtu.be/rGu5gNR4BhE#t=53m53s) 
+5.	[Before/after]( https://youtu.be/rGu5gNR4BhE#t=57m39s) 
+6.	[Тестирования, определение ошибок]( https://youtu.be/rGu5gNR4BhE?t=4031) 
+7.	 [Использование библиотеки chai]( https://youtu.be/rGu5gNR4BhE?t=4432) 
+8.	[Библиотека superagent]( https://youtu.be/rGu5gNR4BhE?t=5042) 
+9.	[Stubs]( https://youtu.be/rGu5gNR4BhE?t=5084) 
+10.	[Integration tests]( https://youtu.be/rGu5gNR4BhE?t=6766) 
+11.	[Child process]( https://youtu.be/rGu5gNR4BhE?t=6868) 
+12.	[Библиотека supertest]( https://youtu.be/rGu5gNR4BhE?t=8313) 
+
 ----
 ## Installation
 
