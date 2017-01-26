@@ -17,13 +17,14 @@
  - строки-шаблоны;
  - в unit тестах cli-tool есть место, где можно использовать *class* (PostStub);
  - замену чейнинга промисов и колбэчных функций на *плоский асинхронный* код внутри генераторов. С **yield**'ом других генераторов или промисифицированных методов используемых библиотек.
+
 ----
 ## Links
 
-[Краткие примеры по каждой фиче и сравнение их с аналогами на старом стандарте](http://es6-features.org/)
-[Краткое описание фич и примеры к ним](https://github.com/lukehoban/es6features)
-[Хорошие уроки, содержательный сайт](https://egghead.io/courses/learn-es6-ecmascript-2015)
-[Детальный учебник](http://exploringjs.com/es6/)
-[Очень краткий обзор фич стандарта](http://css-live.ru/articles/obzor-es6-v-350-punktax.html)
-[Огромная база полезных ресурсов](https://github.com/ericdouglas/ES6-Learning)
-[Табличка совместимости](https://kangax.github.io/compat-table/es6/)
+1. [Краткие примеры по каждой фиче и сравнение их с аналогами на старом стандарте](http://es6-features.org/)
+2. [Краткое описание фич и примеры к ним](https://github.com/lukehoban/es6features)
+3. [Хорошие уроки, содержательный сайт](https://egghead.io/courses/learn-es6-ecmascript-2015)
+4. [Детальный учебник](http://exploringjs.com/es6/)
+5. [Очень краткий обзор фич стандарта](http://css-live.ru/articles/obzor-es6-v-350-punktax.html)
+6. [Огромная база полезных ресурсов](https://github.com/ericdouglas/ES6-Learning)
+7. [Табличка совместимости](https://kangax.github.io/compat-table/es6/)
