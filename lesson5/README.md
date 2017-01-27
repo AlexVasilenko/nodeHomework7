@@ -9,6 +9,25 @@
 
 ***Video timing***
 
+1.	 [Node-gyp](https://youtu.be/VzdSaYp5a4Q#t=30m10s) 
+2.	[ECMAScript 6]( https://youtu.be/VzdSaYp5a4Q#t=34m56s) 
+3.	[Что такое ECMAScript?]( https://youtu.be/VzdSaYp5a4Q#t=40m15s) 
+4.	[ECMAScript 5]( https:/youtu.be/VzdSaYp5a4Q#t=40m50s) 
+5.	[Совместимости ECMAScript 5 и ECMAScript 6]( https:/youtu.be/VzdSaYp5a4Q#t=41m16s) 
+6.	[Новые возможности ES6]( https:/youtu.be/VzdSaYp5a4Q#t=45m12s) 
+7.	[Совместимости c shims, transpilers, flags]( https:/youtu.be/VzdSaYp5a4Q#t=46m18s) 
+8.	[Транспайлер или полифил?]( https:/youtu.be/VzdSaYp5a4Q#t=47m08s) 
+9.	[Source maps]( https:/youtu.be/VzdSaYp5a4Q#t=48m55s) 
+10.	[Производительность]( https:/youtu.be/VzdSaYp5a4Q#t=53m31s) 
+11.	[Блочная область видимости]( https:/youtu.be/VzdSaYp5a4Q#t=54m41s) 
+12.	[Arrow functions]( https://youtu.be/VzdSaYp5a4Q?t=4826) 
+13.	[Синтаксис стрелочных функций]( https://youtu.be/VzdSaYp5a4Q?t=4899) 
+14.	[Параметры по умолчанию в ES6]( https://youtu.be/VzdSaYp5a4Q?t=5451) 
+15.	[Rest и spread]( https://youtu.be/VzdSaYp5a4Q?t=5676) 
+16.	[Деструктуризация]( https://youtu.be/VzdSaYp5a4Q?t=6311) 
+17.	[Классы]( https://youtu.be/VzdSaYp5a4Q?t=6912) 
+18.	[Промисы]( https://youtu.be/VzdSaYp5a4Q?t=7510) 
+19.	[Генераторы]( https://youtu.be/VzdSaYp5a4Q?t=8265)
 
 ----
 ## Homework
