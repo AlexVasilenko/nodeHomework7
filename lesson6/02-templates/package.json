@@ -1,0 +1,14 @@
+{
+  "name": "templates",
+  "version": "1.1.1",
+  "main": "app.js",
+  "dependencies": {
+    "express-handlebars": "^3.0.0",
+    "express": "^4.14.0",
+    "ejs": "^2.5.5",
+    "connect": "^3.5.0"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
