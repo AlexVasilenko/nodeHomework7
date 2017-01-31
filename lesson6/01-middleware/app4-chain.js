@@ -34,6 +34,7 @@ app.use('/b', function (err, req, res, next) {
     next(err);
 });
 
+
 app.get('/c', function (err, req) {
     console.log('/c: error thrown');
     throw new Error('c failed');

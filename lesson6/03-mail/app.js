@@ -7,12 +7,10 @@ var fs = require('fs');
 var express = require('express');
 var nodeMailer = require('nodemailer');
 
-var liqpay = require('./liqpay');
-
 var config = {
     infoMail: 'info@frontend-science.com',
     fsPhone: '+38 068 867—32—23',
-    host: 'http://frontend-science.com'
+    host: 'http://frontend.science.com'
 };
 
 var courses = {
@@ -72,48 +70,12 @@ var courses = {
     }
 };
 
-function validatePhone(phone) {
-    var regExp = /^((8|\+\d)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
-    return phone.match(regExp);
-}
-
-function validateEmail(mail) {
-    var regExp = /.+@.+\..+/i;
-    return mail.match(regExp);
-}
-
-function generateOrderId() {
-    var date = new Date(),
-        orderId = date.getDate() + date.getMonth() + '-';
-
-    for (var i = 0; i < 4; i++) {
-        orderId += Math.floor(Math.random() * 10);
-    }
-
-    return orderId;
-}
-
 app.post('/', function(req, res) {
+
     var data = req.body,
         orderId = generateOrderId(),
         paymentLink;
 
-    console.log('-------------' + new Date() + '----------------');
-    console.log(req.headers);
-    console.log(req.body);
-
-    // Забанил спамера
-    if(!data || req.headers['postman-token'] || req.headers['x-real-ip'] === '46.164.135.76') {
-        return res.json({ status: 'error' });
-    }
-
-    if(!data.phone || !validatePhone(data.phone)) {
-        return res.json({ status: 'error', message: 'wrongPhone' });
-    }
-
-    if(!data.email || !validateEmail(data.email)) {
-        return res.json({ status: 'error', message: 'wrongEmail' });
-    }
 
     // Sending Mail
     var transporter = nodeMailer.createTransport({
@@ -189,40 +151,6 @@ app.post('/', function(req, res) {
             console.log(error.message);
         }
     });
-
-    if (courses[data.course].testSubject) {
-        var clientTestOptions = {
-            from: 'Front-end Science <info@frontend-science.com>', // sender address
-            to: data.email, // receiver
-            subject: courses[data.course].testSubject, // Subject line
-            html: ejs.render(fs.readFileSync(courses[data.course].testMail).toString(),
-                {
-                    name: data.name,
-                    fsPhone: config.fsPhone,
-                    host: config.host,
-                    testLink: courses[data.course].testLink
-                }
-            ),
-            attachments: [
-                {
-                    filename: 'logo.png',
-                    path: './mail-static/logo.png',
-                    cid: 'mail@logo.png'
-                },
-                {
-                    filename: 'footer.png',
-                    path: './mail-static/footer.png',
-                    cid: 'mail@footer.png'
-                }
-            ]
-        };
-
-        transporter.sendMail(clientTestOptions, function(error) {
-            if (error) {
-                console.log(error.message);
-            }
-        });
-    }
 
     transporter.sendMail(infoMailOptions, function(error) {
         if (error) {

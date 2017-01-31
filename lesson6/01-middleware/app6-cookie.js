@@ -7,7 +7,8 @@ app.use(cookieParser());
 
 
 app.get('/', function(req, res) {
-    console.log('Cookies: ', req.cookies)
+    console.log('Cookies: ', req.cookies);
+    res.send('Cookies:' + req.cookies);
 });
 
 app.listen(5000, function () {

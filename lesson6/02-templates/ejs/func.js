@@ -6,6 +6,7 @@ var ejs = require('ejs');
 var read = require('fs').readFileSync;
 var join = require('path').join;
 var path = join(__dirname, '/func.ejs');
+
 var data = {
     users: [
         { name: 'Tobi', age: 2, species: 'ferret' },
@@ -14,6 +15,6 @@ var data = {
     ]
 };
 
-var ret = ejs.compile(read(path, 'utf8'), {filename: path})(data);
+var ret = ejs.compile(read(path, 'utf8'), { filename: path })(data);
 
 console.log(ret);

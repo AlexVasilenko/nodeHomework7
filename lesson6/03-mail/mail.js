@@ -2,13 +2,13 @@ var express = require('express');
 
 var app = express();
 
-var ejs = require('ejs');
-var fs = require('fs');
+// var ejs = require('ejs');
+// var fs = require('fs');
 var config = require('./config');
 
 var nodeMailer = require('nodemailer');
 
-app.get('/', function (req, res) {
+app.get('/mail/', function (req, res) {
 
     var transporter = nodeMailer.createTransport({
         service: 'yandex',
@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
     var mailOptions = {
         from: 'Front-end Science <test@frontend-science.com>', // sender address
         to: 'puzankov-sd@ya.ru', // receiver
-        subject: 'Subject', // Subject line
+        subject: 'Subject Node.js', // Subject line
         html: '<b>hello</b>'
     };
 
