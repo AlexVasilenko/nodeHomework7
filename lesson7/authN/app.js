@@ -9,8 +9,8 @@ app.use(bodyParser.json());
 app.use(routes);
 
 app.use(function(err, req, res, next) {// eslint-disable-line no-unused-vars
-  log.error(err);
-  res.status(err.status || err.code || 500);
+  log.error(err, err.status);
+  res.status(err.status || 500);
   res.json(err.message);
 });
 

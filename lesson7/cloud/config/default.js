@@ -2,6 +2,9 @@ module.exports = {
   uploadDestination: 'uploads-default/',
   filesListPath: './filesList',
   filesRecordSplitter: '\n',
-  username: 'qwe',
-  password: 'securepass'
+  services: {
+    authN: {
+      host: 'http://127.0.0.1:3001'
+    }
+  }
 };

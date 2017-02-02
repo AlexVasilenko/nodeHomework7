@@ -1,8 +1,11 @@
-var config = require('../config');//TO-DO: switch to config module
-var basic = require('basic-auth');
-var router = require('express').Router();
-var uploadCtrl = require('../controllers/upload');
-var log = require('../log');
+const config = require('config');
+const basic = require('basic-auth');
+const request = require('request-promise');
+const wrap = require('co-express');
+const router = require('express').Router();
+const uploadCtrl = require('../controllers/upload');
+const log = require('../log');
+const authTokens = {};
 
 router.post('/upload',
   basicAuth(),
@@ -15,16 +18,27 @@ router.post('/upload',
 );
 
 function basicAuth() {
-  return function(req, res, next) {
+  return wrap(function *(req, res, next) {
     var creds = basic(req);
-    if (!creds || creds.name !== config.username || creds.pass !== config.password) {
+    if (!creds) {
       log.error('Not Authorized', creds.username);
-      res.status(401).json('Not Authorized');
+      throw new Error('Not Authorized', 401);
     } else {
-      log.debug('Authorized', creds.username);
+      const {name: username, pass: password} = creds;
+      const session = username + password;
+      const token = authTokens[session];
+      if (token) {
+        yield request.get(`${config.services.authN.host}/sessions/${token}`);
+      } else {
+        authTokens[session] = yield request.post(
+          `${config.services.authN.host}/token`,
+          { json: { username, password } }
+        );
+      }
+      log.debug('Authorized', username);
       return next();
     }
-  };
+  });
 }
 
 

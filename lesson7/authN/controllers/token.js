@@ -19,17 +19,25 @@ function *login(username, password) {
   }
   const token = uuid.v4();
   const client = yield redisClient();
-  return client.setAsync(
-    config.redis.session.prefix + token, 1,
-    'NX',
-    'EX', config.redis.session.expires
+  const key = generateTokenKey(token);
+
+  let result = yield client.setAsync(
+    key, username, 'NX', 'EX', config.redis.session.expires
   )
   .then(res => res && token);
+
+  return result;
 }
+
 
 function *checkToken(token) {
   const client = yield redisClient();
-  return client.getAsync(config.redis.session.prefix + token);
+  const key = generateTokenKey(token);
+  return client.getAsync(key);
+}
+
+function generateTokenKey(token) {
+  return config.redis.session.prefix + token;
 }
 
 function redisClient() {
