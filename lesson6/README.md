@@ -3,7 +3,7 @@
 ----
 ## Lecture
 
-**Video Link** [Webinar Video 6]()
+**Video Link** [Webinar Video 6](https://youtu.be/OR5Vf58vSks)
 
 ***Video timing***
 
