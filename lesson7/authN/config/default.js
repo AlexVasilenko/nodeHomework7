@@ -1,4 +1,7 @@
 module.exports = {
+  application: {
+    port: 3001
+  },
   redis: {
     options: {
       host: 'localhost',
