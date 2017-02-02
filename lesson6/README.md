@@ -17,6 +17,7 @@
 
 Форма должна содердать такие поля:
 * Имя `[type=text]`
+* Фамилия `[type=text]`
 * Телефон `[type=tel]`
 * Email `[type=email]`
 * Продукт `[type=select]`
@@ -34,30 +35,83 @@
 При запросе `GET /` — должна отдаваться html страница  `home page` с формой.
 Ее необходимо отдавать через шаблонизатор (handlebars, ejs, jade — на ваш выбор).
 
-### 3. Form Submit
+### 3. Обработка заказа
 
 Необходимо создать обработчик на `POST /order/`.
- 
-При получении запроса необходимо  
- 
- 
 
-1. Добавить к обработке формы валидацию email.
-2. Добавить к обработке формы валидацию телефона.
-3. В форме сделать `select` с выбором продукта.
-4. Добавить разные шаблоны на разные продукты.
-5. Создать конфиг товаров: заголовок письма, адрес шаблона письма.
-6. Создать отправку письма менеджеру со всеми деталями заказа.
+В случае если нет никаких ошибкок — то отправляем ответ со статическим html "Ваш заказ успешно принят. ID заказа 9999"
 
+Id заказа - это рандомное число `от 0 до 9999`.
+
+html этой страницы необходмо шаблонизировать
+
+### 3. Manger mail
+
+Добавляем в обработчик `POST /order/` отправку письма менеджеру.
+ 
+При получении запроса необходимо отправлять письмо с заказом менеджеру магазина. Email получателя поставьте ваш личный.
+
+Необходимо создать html шаблон письма (используя шаблонизатор) с текстом и предавать в него параметры заказа.
+В письме должны быть следующие данные: 
+ 
+ * Имя
+ * Фамимлия
+ * Телефон 
+ * Email 
+ * Продукт 
+ * Дата и время заказа
+ * id заказа 
+
+Заголовок письма должнен быть: `Заказ 9999. Имя Фамилия` 
+
+### 3. Client mail
+
+На `POST /order/` необходимо также добавить отправку письма самому пользователю.
+Шаблон с текстом письма должен быль в отдельном файле шаблонизатора.
+
+В это пислмо должно передаваться:
+
+    * Продукт 
+    * Дата и время заказа
+    * id заказа 
+
+Заголовок письма должнен быть: `Ваш заказ 9999 в магазине Ларёк принят`
+
+### 4. Валидации
+
+На входящие запросы на `POST /order/` необходимоп добавить проверку входящих данных.
+
+    1. Обязательные поля: все поля обязательыны для заполнения (должны быть не пустыми). `error_id=required_field`
+    2. Добавить к обработке формы валидацию email. `error_id=invalid_email`
+    3. Добавить к обработке формы валидацию телефона. `error_id=invalid_tel`
+
+В случае ошибки редиректим пользователя на url `/?error=error_id`
+ 
+### 5. Обработка ошибок в шаблоне 
+
+При запросе `GET /` необходимо сделать проверку есть ли GET параметр `?error=error_id`
+
+Если есть то в шалоне нужно вывести блок с обшибкой. Текст ошибки должен соответсвовать типу ошибки. 
+Например: "Вы не заполнили все обязательные поля".
+
+### Примечания
+
+    * Выносите в отдельный конфиг все что может меняться в последствии: 
+    email менеджера, authn credentials для почтового ящика с кторого отправляются письма.
+    * Подключите какой-то готовый css framework (bootstrap)
+    * Добавьте static middleware для выдачи статики
+    * Вынестие в отдельный конфиг id ошибок и тексты
+    * Вынестие в отдельный модуль валидаторы
+    
 ----
 ## Links
 
-1. [Writing middleware (ru)](http://expressjs.com/ru/guide/writing-middleware.html)
-2. [Using middleware (ru)](http://expressjs.com/ru/guide/using-middleware.html)
-3. [Middleware list](http://expressjs.com/ru/resources/middleware.html)
-4. [CORS](https://www.npmjs.com/package/cors)
-5. [Routing](http://expressjs.com/ru/guide/routing.html)
-6. [ejs](http://www.embeddedjs.com)
-7. [Handlebars](http://handlebarsjs.com)
-8. [npm express-handlebars](https://www.npmjs.com/package/express-handlebars)
-9. [Nodemailer](https://nodemailer.com)
+    1. [Writing middleware (ru)](http://expressjs.com/ru/guide/writing-middleware.html)
+    2. [Using middleware (ru)](http://expressjs.com/ru/guide/using-middleware.html)
+    3. [Middleware list](http://expressjs.com/ru/resources/middleware.html)
+    4. [CORS](https://www.npmjs.com/package/cors)
+    5. [Routing](http://expressjs.com/ru/guide/routing.html)
+    6. [ejs](http://www.embeddedjs.com)
+    7. [Handlebars](http://handlebarsjs.com)
+    8. [npm express-handlebars](https://www.npmjs.com/package/express-handlebars)
+    9. [Nodemailer](https://nodemailer.com)
