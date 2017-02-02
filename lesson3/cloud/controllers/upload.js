@@ -34,8 +34,7 @@ function validateRequest() {
   return function(req, res, next) {
     var filePath = req.query.filePath;
     if (!filePath) {
-      var err = new Error('Validation error: filePath parameter is missing');
-      err.code = 400;
+      var err = new Error('Validation error: filePath parameter is missing', 400);
       return next(err);
     }
     next();

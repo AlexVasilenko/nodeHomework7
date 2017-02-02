@@ -1,4 +1,7 @@
 module.exports = {
+  application: {
+    port: 3000
+  },
   uploadDestination: 'uploads-default/',
   filesListPath: './filesList',
   filesRecordSplitter: '\n',
