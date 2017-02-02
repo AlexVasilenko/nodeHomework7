@@ -7,7 +7,6 @@
 
 ***Video timing***
 
-
 ----
 ## Homework
 
@@ -28,22 +27,22 @@
     * Соль
 * Заказать `[type=submit]`
 
-При сабмите формы отправлеям запрос `POST /order/`.
+При сабмите формы отправляем запрос `POST /order/`.
 
 ### 2. Шаблонизировать home page
 
 При запросе `GET /` — должна отдаваться html страница  `home page` с формой.
-Ее необходимо отдавать через шаблонизатор (handlebars, ejs, jade — на ваш выбор).
+Её необходимо отдавать через шаблонизатор (handlebars, ejs, jade — на ваш выбор).
 
 ### 3. Обработка заказа
 
 Необходимо создать обработчик на `POST /order/`.
 
-В случае если нет никаких ошибкок — то отправляем ответ со статическим html "Ваш заказ успешно принят. ID заказа 9999"
+В случае если нет никаких ошибок — то отправляем ответ со статическим html `Ваш заказ успешно принят. ID заказа 9999`
 
 Id заказа - это рандомное число `от 0 до 9999`.
 
-html этой страницы необходмо шаблонизировать
+html этой страницы необходмо шаблонизировать.
 
 ### 3. Manger mail
 
@@ -69,21 +68,21 @@ html этой страницы необходмо шаблонизировать
 На `POST /order/` необходимо также добавить отправку письма самому пользователю.
 Шаблон с текстом письма должен быль в отдельном файле шаблонизатора.
 
-В это пислмо должно передаваться:
+В это письмо должно передаваться:
 
-    * Продукт 
-    * Дата и время заказа
-    * id заказа 
+* Продукт 
+* Дата и время заказа
+* id заказа 
 
 Заголовок письма должнен быть: `Ваш заказ 9999 в магазине Ларёк принят`
 
 ### 4. Валидации
 
-На входящие запросы на `POST /order/` необходимоп добавить проверку входящих данных.
+На входящие запросы на `POST /order/` необходимо добавить проверку входящих данных.
 
-    1. Обязательные поля: все поля обязательыны для заполнения (должны быть не пустыми). `error_id=required_field`
-    2. Добавить к обработке формы валидацию email. `error_id=invalid_email`
-    3. Добавить к обработке формы валидацию телефона. `error_id=invalid_tel`
+1. Обязательные поля: все поля обязательыны для заполнения (должны быть не пустыми). `error_id=required_field`
+2. Добавить к обработке формы валидацию email. `error=invalid_email`
+3. Добавить к обработке формы валидацию телефона. `error=invalid_tel`
 
 В случае ошибки редиректим пользователя на url `/?error=error_id`
  
@@ -92,26 +91,26 @@ html этой страницы необходмо шаблонизировать
 При запросе `GET /` необходимо сделать проверку есть ли GET параметр `?error=error_id`
 
 Если есть то в шалоне нужно вывести блок с обшибкой. Текст ошибки должен соответсвовать типу ошибки. 
-Например: "Вы не заполнили все обязательные поля".
+Например: `Вы не заполнили все обязательные поля`.
 
 ### Примечания
 
-    * Выносите в отдельный конфиг все что может меняться в последствии: 
-    email менеджера, authn credentials для почтового ящика с кторого отправляются письма.
-    * Подключите какой-то готовый css framework (bootstrap)
-    * Добавьте static middleware для выдачи статики
-    * Вынестие в отдельный конфиг id ошибок и тексты
-    * Вынестие в отдельный модуль валидаторы
+* Выносите в отдельный конфиг все что может меняться в последствии: 
+email менеджера, authn credentials для почтового ящика с кторого отправляются письма.
+* Подключите какой-то готовый css framework (bootstrap).
+* Добавьте static middleware для выдачи статики.
+* Вынестие в отдельный конфиг id ошибок и тексты.
+* Вынестие в отдельный модуль валидаторы.
     
 ----
 ## Links
 
-    1. [Writing middleware (ru)](http://expressjs.com/ru/guide/writing-middleware.html)
-    2. [Using middleware (ru)](http://expressjs.com/ru/guide/using-middleware.html)
-    3. [Middleware list](http://expressjs.com/ru/resources/middleware.html)
-    4. [CORS](https://www.npmjs.com/package/cors)
-    5. [Routing](http://expressjs.com/ru/guide/routing.html)
-    6. [ejs](http://www.embeddedjs.com)
-    7. [Handlebars](http://handlebarsjs.com)
-    8. [npm express-handlebars](https://www.npmjs.com/package/express-handlebars)
-    9. [Nodemailer](https://nodemailer.com)
+1. [Writing middleware (ru)](http://expressjs.com/ru/guide/writing-middleware.html)
+2. [Using middleware (ru)](http://expressjs.com/ru/guide/using-middleware.html)
+3. [Middleware list](http://expressjs.com/ru/resources/middleware.html)
+4. [CORS](https://www.npmjs.com/package/cors)
+5. [Routing](http://expressjs.com/ru/guide/routing.html)
+6. [ejs](http://www.embeddedjs.com)
+7. [Handlebars](http://handlebarsjs.com)
+8. [npm express-handlebars](https://www.npmjs.com/package/express-handlebars)
+9. [Nodemailer](https://nodemailer.com)
