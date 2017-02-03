@@ -4,6 +4,8 @@
 
 **Video Link** [Webinar Video 7](https://youtu.be/QO-A2rOT97c)
 
+***Video timing***
+
 ----
 ## Homework
 
