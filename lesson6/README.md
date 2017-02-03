@@ -7,6 +7,20 @@
 
 ***Video timing***
 
+1.	[Middleware]( https://youtu.be/OR5Vf58vSks#t=23m26s)
+2.	[app.get]( https://youtu.be/OR5Vf58vSks#t=24m39s)
+3.	[Function requestTime]( https://youtu.be/OR5Vf58vSks#t=34m02s)
+4.	[Порядок в middleware]( https://youtu.be/OR5Vf58vSks#t=43m20s)
+5.	[Модуль connect и метод static]( https://youtu.be/OR5Vf58vSks#t=55m20s)
+6.	[Модули express]( https://youtu.be/OR5Vf58vSks#t=62m35s)
+7.	[Модуль body-parser]( https://youtu.be/OR5Vf58vSks#t=62m48s)
+8.	[Модуль CORS]( https://youtu.be/OR5Vf58vSks#t=66m43s)
+9.	[Шаблонизатор JADE]( https://youtu.be/OR5Vf58vSks#t=83m10s)
+10. [Шаблонизатор Handlebars]( https://youtu.be/OR5Vf58vSks#t=84m05s)
+11. [Шаблонизатор ejs]( https://youtu.be/OR5Vf58vSks#t=97m47s)
+12. [Mail]( https://youtu.be/OR5Vf58vSks?t=6310)
+
+
 ----
 ## Homework
 
