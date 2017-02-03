@@ -20,6 +20,7 @@
 12.	[Библиотека uuid]( https://youtu.be/QO-A2rOT97c#t=57m58s)
 13.	[Библиотека redis]( https://youtu.be/QO-A2rOT97c#t=61m00s)
 14.	[Publish/Subscribe]( https://youtu.be/QO-A2rOT97c#t=66m011s)
+15.	[Библиотека Socket.IO]( https://youtu.be/QO-A2rOT97c?t=7986)
 
 ----
 ## Homework
