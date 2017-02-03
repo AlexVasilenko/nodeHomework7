@@ -6,6 +6,21 @@
 
 ***Video timing***
 
+1.	[Redis]( https://youtu.be/QO-A2rOT97c#t=3m35s)
+2.	[Типы данных которые поддерживает Redis]( https://youtu.be/QO-A2rOT97c#t=7m57s)
+3.	[Strings]( https://youtu.be/QO-A2rOT97c#t=11m19s)
+4.	[Key]( https://youtu.be/QO-A2rOT97c#t=19m50s)
+5.	[List]( https://youtu.be/QO-A2rOT97c#t=24m20s)
+6.	[Lrange]( https://youtu.be/QO-A2rOT97c#t=26m15s)
+7.	[Lpop]( https://youtu.be/QO-A2rOT97c#t=27m43s)
+8.	[Sets]( https://youtu.be/QO-A2rOT97c#t=28m39s)
+9.	[Hashes]( https://youtu.be/QO-A2rOT97c#t=30m04s)
+10.	[Sorted sets]( https://youtu.be/QO-A2rOT97c#t=34m20s)
+11.	[Bitmaps and HyperLogLogs]( https://youtu.be/QO-A2rOT97c#t=35m44s)
+12.	[Библиотека uuid]( https://youtu.be/QO-A2rOT97c#t=57m58s)
+13.	[Библиотека redis]( https://youtu.be/QO-A2rOT97c#t=61m00s)
+14.	[Publish/Subscribe]( https://youtu.be/QO-A2rOT97c#t=66m011s)
+
 ----
 ## Homework
 
