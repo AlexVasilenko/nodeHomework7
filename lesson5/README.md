@@ -9,7 +9,7 @@
 
 ***Video timing***
 
-1.	 [Node-gyp](https://youtu.be/VzdSaYp5a4Q#t=30m10s) 
+1.	 [Node-gyp]( https://youtu.be/VzdSaYp5a4Q#t=30m10s) 
 2.	[ECMAScript 6]( https://youtu.be/VzdSaYp5a4Q#t=34m56s) 
 3.	[Что такое ECMAScript?]( https://youtu.be/VzdSaYp5a4Q#t=40m15s) 
 4.	[ECMAScript 5]( https:/youtu.be/VzdSaYp5a4Q#t=40m50s) 
