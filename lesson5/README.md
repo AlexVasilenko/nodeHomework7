@@ -19,7 +19,7 @@
 8.	[Транспайлер или полифил?]( https:/youtu.be/VzdSaYp5a4Q#t=47m08s) 
 9.	[Source maps]( https:/youtu.be/VzdSaYp5a4Q#t=48m55s) 
 10.	[Производительность]( https:/youtu.be/VzdSaYp5a4Q#t=53m31s) 
-11.	[Блочная область видимости]( https:/youtu.be/VzdSaYp5a4Q#t=5441) 
+11.	[Блочная область видимости]( https://youtu.be/VzdSaYp5a4Q?t=3281) 
 12.	[Arrow functions]( https://youtu.be/VzdSaYp5a4Q?t=4826) 
 13.	[Синтаксис стрелочных функций]( https://youtu.be/VzdSaYp5a4Q?t=4899) 
 14.	[Параметры по умолчанию в ES6]( https://youtu.be/VzdSaYp5a4Q?t=5451) 
