@@ -1,0 +1,114 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.1.0",
+    "title": "Cloud service API",
+    "contact": {
+      "name": "Frontend-science",
+      "url": "https://github.com/frontend-science/nodejs-dev-pro/tree/master/lesson8"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/swagger": {
+      "x-swagger-pipe": "swagger_raw"
+    },
+    "/upload": {
+      "x-swagger-router-controller": "upload",
+      "post": {
+        "operationId": "postAction",
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded",
+          "multipart/form-data"
+        ],
+        "tags": [
+          "File sync operations"
+        ],
+        "summary": "Upload file request",
+        "parameters": [
+          { "$ref": "#/parameters/filePath" },
+          { "$ref": "#/parameters/Authorization" },
+          { "$ref": "#/parameters/syncfile" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success upload",
+            "schema": {
+              "$ref": "#/definitions/UploadResponse"
+            }
+          },
+          "400": {
+            "description": "Bad Request if any of mandatory parameters are missing in the request",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "401": {
+            "description": "Unauthorized error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "default": {
+            "description": "Unexpected error (e.g. Redis is not available)",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UploadResponse": {
+      "type": "object",
+      "required": [
+        "duplicate"
+      ],
+      "properties": {
+        "duplicate": {
+          "type": "boolean",
+          "description": "Indicates if the file was already synced"
+        }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "Message explaining the reason of error"
+        }
+      }
+    }
+  },
+  "parameters": {
+    "filePath": {
+      "name": "filePath",
+      "in": "query",
+      "description": "URIEncoded upload file path on the client machine",
+      "required": true,
+      "type": "string"
+    },
+    "Authorization": {
+      "name": "Authorization",
+      "in": "header",
+      "description": "Basic Authorization in base64",
+      "required": true,
+      "type": "string"
+    },
+    "syncfile": {
+      "name": "syncfile",
+      "in": "formData",
+      "description": "Upload file attachment",
+      "type": "file"
+    }
+  }
+}
