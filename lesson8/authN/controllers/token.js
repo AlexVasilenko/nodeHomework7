@@ -15,7 +15,9 @@ module.exports = {
 function *login(username, password) {
   const valid = db.check(username, password);
   if (!valid) {
-    throw new Error('No Permission to Access', 403);
+    const err = new Error('No Permission to Access');
+    err.status = 401;
+    throw err;
   }
   const token = uuid.v4();
   const client = yield redisClient();

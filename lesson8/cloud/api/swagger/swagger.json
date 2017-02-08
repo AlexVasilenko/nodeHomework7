@@ -20,7 +20,7 @@
     "/upload": {
       "x-swagger-router-controller": "upload",
       "post": {
-        "operationId": "uploadAction",
+        "operationId": "postAction",
         "produces": [
           "application/json"
         ],
@@ -108,7 +108,6 @@
       "name": "syncfile",
       "in": "formData",
       "description": "Upload file attachment",
-      "required": true,
       "type": "file"
     }
   }
