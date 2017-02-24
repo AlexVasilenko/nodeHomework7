@@ -9,5 +9,9 @@ module.exports = {
     authN: {
       host: 'http://127.0.0.1:3001'
     }
+  },
+  redisOptions: {
+    host: 'localhost',
+    port: '6379'
   }
 };

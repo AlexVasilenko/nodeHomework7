@@ -2,6 +2,8 @@ var multer  = require('multer');
 var fs = require('fs');
 var config = require('config');
 var log = require('../log');
+const co = require('co');
+const filelist = require('./filelist');
 
 var uploadMiddleware = multer({
   dest: config.uploadDestination,
@@ -23,14 +25,14 @@ try {
 }
 
 function fileFilter(req, file, cb) {
-  var filePath = req.query.filePath;
-  if (filesList.includes(filePath)) {
-    cb(null, false);
-  } else {
-    saveToFileList(filePath, function(err) {
-      cb(err, true);
-    });
-  }
+  const filePath = req.query.filePath;
+  co(filesList.filePathFilter(filePath))
+  .then ( res => {
+      cb(null, res);
+  })
+  .catch( err => {
+    cb(err, true);
+  });
 }
 
 function validateRequest() {
